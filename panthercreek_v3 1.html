@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dental Emergency in Frisco TX — Panther Creek Dental | Same-Day Relief</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --teal:       #00d084;
+    --teal-dark:  #007a4d;
+    --teal-mid:   #00b874;
+    --teal-light: #dffaf0;
+    --gold:       #D4A843;
+    --gold-light: #F5E6C0;
+    --white:      #FFFFFF;
+    --off-white:  #f5fdf9;
+    --text-dark:  #092b1a;
+    --text-body:  #1e4433;
+    --red-urgent: #C0392B;
+    --red-soft:   #FDECEA;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+    overflow-x: hidden;
+    line-height: 1.5;
+  }
+
+  /* ─── STICKY BAR ─────────────────────────────────── */
+  .sticky-bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: var(--teal-dark);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 64px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+  }
+  .sticky-logo-img { height: 36px; width: auto; filter: brightness(0) invert(1); }
+  .sticky-actions { display: flex; align-items: center; gap: clamp(8px, 2vw, 20px); }
+  .sticky-phone {
+    color: white;
+    font-weight: 800;
+    font-size: clamp(14px, 1.6vw, 20px);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+    background: var(--red-urgent);
+    padding: 10px 20px;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+    animation: pulse-ring 2.5s ease-out infinite;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .sticky-phone:hover { opacity: 0.9; transform: scale(1.03); }
+  .btn-book {
+    background: var(--gold);
+    color: var(--teal-dark);
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 11px 24px;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: opacity 0.2s, transform 0.15s;
+    box-shadow: 0 4px 14px rgba(212,168,67,0.5);
+  }
+  .btn-book:hover { opacity: 0.85; transform: scale(1.03); }
+
+  /* ─── URGENCY BANNER ─────────────────────────────── */
+  .urgency-banner {
+    background: var(--red-urgent); color: white;
+    padding: 14px 5%;
+    display: flex;
+    justify-content: center; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+    font-weight: 700; text-align: center;
+    font-size: clamp(12px, 1.2vw, 15px);
+    /* sits right below nav, scrolls with page */
+    margin-top: 64px;
+  }
+  .urgency-banner a {
+    color: var(--red-urgent); background: white; border: 2px solid white;
+    padding: 8px 22px; border-radius: 6px;
+    text-decoration: none; white-space: nowrap;
+    font-weight: 800;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .urgency-banner a:hover { background: rgba(255,255,255,0.85); transform: scale(1.04); }
+
+  /* ─── HERO ──────────────────────────────────────── */
+  .hero {
+    position: relative;
+    padding: clamp(60px, 9vw, 110px) 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    overflow: hidden;
+    min-height: clamp(520px, 75vh, 820px);
+  }
+
+  /* Video layer */
+  .hero-video-bg {
+    position: absolute; inset: 0; z-index: 0; overflow: hidden;
+    background: linear-gradient(135deg, #004d30, #007a4d, #00b874, #00d084, #007a4d);
+  }
+  .hero-video-bg .hero-bg-photo {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.45;
+    filter: saturate(0.55) brightness(0.65);
+  }
+  /* Strong gradient overlay — ensures text always readable */
+  .hero-video-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg,
+        rgba(0, 40, 22, 0.88) 0%,
+        rgba(0, 100, 60, 0.78) 55%,
+        rgba(0, 160, 100, 0.65) 100%);
+  }
+
+  /* Dot texture */
+  .hero::before {
+    content: ''; position: absolute; inset: 0; z-index: 1;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1' fill='white' fill-opacity='0.05'/%3E%3C/svg%3E") repeat;
+    pointer-events: none;
+  }
+
+  /* Pulse ring on urgent badge */
+  @keyframes pulse-ring {
+    0%   { box-shadow: 0 0 0 0 rgba(192,57,43,0.6); }
+    70%  { box-shadow: 0 0 0 10px rgba(192,57,43,0); }
+    100% { box-shadow: 0 0 0 0 rgba(192,57,43,0); }
+  }
+  /* Floating animation on price card */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-8px); }
+  }
+
+  .hero-content { flex: 1 1 480px; position: relative; z-index: 2; }
+
+  .urgent-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--red-urgent);
+    color: white; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 8px 16px; border-radius: 100px; margin-bottom: 24px;
+    animation: pulse-ring 2s ease-out infinite;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 64px);
+    font-weight: 900; color: var(--white);
+    line-height: 1.1; margin-bottom: 20px;
+  }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+
+  .hero-sub {
+    color: rgba(255,255,255,0.9);
+    font-size: clamp(15px, 1.2vw, 19px);
+    margin-bottom: 36px; max-width: 580px;
+  }
+
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 30px; }
+  .btn-primary, .btn-call {
+    padding: clamp(16px,2.2vw,22px) clamp(24px,3.5vw,44px);
+    border-radius: 8px; font-weight: 800;
+    text-decoration: none; text-transform: uppercase; text-align: center;
+    font-size: clamp(15px, 1.3vw, 18px);
+    letter-spacing: 0.04em;
+    transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.92; transform: translateY(-3px); box-shadow: 0 14px 40px rgba(212,168,67,0.55) !important; }
+  .btn-call:hover    { opacity: 0.88; transform: translateY(-3px); }
+  .btn-primary { 
+    background: var(--gold); color: var(--teal-dark); 
+    box-shadow: 0 8px 28px rgba(212,168,67,0.5);
+    animation: pulse-gold 2.8s ease-in-out infinite;
+  }
+  .btn-call    { border: 2.5px solid white; color: white; background: rgba(255,255,255,0.08); }
+  @keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 8px 28px rgba(212,168,67,0.5); }
+    50%       { box-shadow: 0 10px 40px rgba(212,168,67,0.75); }
+  }
+
+  .hero-trust { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+  .trust-chip { color: white; font-size: 13px; display: flex; align-items: center; gap: 6px; }
+
+  /* Hero emergency conditions */
+  .hero-conditions {
+    margin-top: 8px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 22px;
+  }
+  .hero-conditions-label {
+    color: var(--gold); font-size: clamp(13px, 1.2vw, 15px); font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;
+  }
+  .hero-conditions-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 11px 20px;
+  }
+  .hero-conditions-grid span {
+    color: rgba(255,255,255,0.95); font-size: clamp(15px, 1.3vw, 17px);
+    font-weight: 500;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  /* Hero live stats bar */
+  .hero-live-stats {
+    display: flex; align-items: center; gap: 16px;
+    background: rgba(0,0,0,0.25); border-radius: 8px;
+    padding: 14px 20px; margin-top: 4px;
+  }
+  .hero-stat { display: flex; flex-direction: column; align-items: center; flex: 1; text-align: center; }
+  .hero-stat-num { color: var(--gold); font-size: clamp(18px, 2vw, 24px); font-weight: 900; font-family: 'Playfair Display', serif; }
+  .hero-stat span:last-child { color: rgba(255,255,255,0.7); font-size: 11px; margin-top: 2px; }
+  .hero-stat-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.2); flex-shrink: 0; }
+
+  /* ─── PRICE CARD ─────────────────────────────── */
+  .price-card-wrapper { flex: 0 1 400px; z-index: 2; width: 100%; animation: float 4s ease-in-out infinite; }
+  .price-card {
+    background: var(--white); border-radius: 16px;
+    padding: clamp(24px, 5vw, 48px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.22);
+    border-top: 6px solid var(--gold);
+  }
+  .price-offer-label { text-transform: uppercase; font-size: 12px; color: var(--teal); font-weight: 700; margin-bottom: 8px; }
+  .price-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(56px, 8vw, 86px);
+    color: var(--teal-dark); font-weight: 900; line-height: 1;
+  }
+  .price-title { font-weight: 700; font-size: clamp(15px,2vw,18px); color: var(--teal-dark); margin-bottom: 20px; }
+  .price-features { list-style: none; margin-top: 8px; }
+  .price-features li {
+    padding: 11px 0; border-bottom: 1px solid #eee;
+    font-size: 15px; display: flex; gap: 10px; align-items: flex-start;
+  }
+  .price-features li:last-child { border-bottom: none; }
+  .price-note { font-size: 12px; margin-top: 16px; color: #888; }
+
+  /* ─── RATINGS STRIP ─────────────────────────────── */
+  .ratings-strip {
+    background: var(--teal-dark); padding: clamp(28px,5vw,40px) 5%;
+    display: flex; justify-content: space-around;
+    flex-wrap: wrap; gap: 20px; color: white; text-align: center;
+  }
+  .stat-item { flex: 1 1 100px; min-width: 80px; }
+  .stat-num {
+    font-size: clamp(26px,5vw,36px); font-weight: 900;
+    color: var(--gold); font-family: 'Playfair Display', serif; line-height: 1;
+  }
+  .stat-label { font-size: clamp(12px,1.2vw,14px); margin-top: 6px; opacity: 0.85; }
+
+  /* ─── GENERIC SECTION ──────────────────────────── */
+  .section { padding: clamp(50px, 9vw, 100px) 5%; }
+  .centered { text-align: center; margin-bottom: clamp(30px,5vw,50px); }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 42px);
+    color: var(--teal-dark); line-height: 1.2;
+  }
+  .section-subtitle {
+    margin-top: 12px; font-size: clamp(15px,1.2vw,17px);
+    color: var(--text-body); max-width: 580px; margin-left: auto; margin-right: auto;
+  }
+
+  /* ─── HOW IT WORKS ─────────────────────────────── */
+  .auto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    gap: clamp(16px, 3vw, 30px);
+  }
+  .step-card {
+    background: #fff; padding: clamp(24px,4vw,40px);
+    border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    border-bottom: 4px solid var(--teal-light);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .step-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,0.1); }
+  .step-card h3 { color: var(--teal-dark); font-size: clamp(17px,2vw,22px); margin-bottom: 12px; }
+
+  /* ─── WHY US / OFFICE ────────────────────────────── */
+  .whyus-container { display: flex; flex-wrap: wrap; gap: clamp(30px,5vw,60px); align-items: flex-start; }
+  .whyus-info { flex: 1 1 min(100%,450px); }
+  .whyus-info > p { font-size: clamp(15px,1.3vw,17px); margin-bottom: 28px; }
+  .feature-grid { display: grid; gap: 22px; }
+  .feature-item { display: flex; gap: 14px; align-items: flex-start; }
+  .feature-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+
+  .office-card {
+    flex: 1 1 min(100%,350px);
+    background: var(--off-white);
+    padding: clamp(24px,4vw,40px);
+    border-radius: 16px; border: 1px solid #D4ECEC;
+  }
+  .office-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px,2.5vw,24px);
+    color: var(--teal-dark); margin-bottom: 20px;
+  }
+  .hours-row {
+    display: flex; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid #D4ECEC;
+    font-size: clamp(14px,1.2vw,15px);
+  }
+  .hours-row.featured {
+    background: var(--gold-light); border-radius: 4px;
+    padding: 10px 8px; font-weight: 700; margin: 8px 0; border-bottom: none;
+  }
+  .office-address { margin-top: 22px; font-size: clamp(14px,1.2vw,15px); line-height: 1.8; }
+  .office-address a { color: var(--teal-dark); font-weight: 700; text-decoration: none; }
+
+  /* ─── REVIEWS ────────────────────────────────────── */
+  .reviews-section { background: var(--teal-dark); }
+  .reviews-section .section-title { color: #fff; }
+  .reviews-section .section-subtitle { color: rgba(255,255,255,0.75); }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: clamp(16px, 3vw, 28px);
+    margin-top: clamp(30px, 5vw, 50px);
+  }
+  .review-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px; padding: clamp(22px,3vw,32px);
+    transition: background 0.2s, transform 0.2s;
+  }
+  .review-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); }
+  .review-stars { color: var(--gold); font-size: 18px; margin-bottom: 14px; letter-spacing: 2px; }
+  .review-text {
+    color: rgba(255,255,255,0.9); font-size: clamp(14px,1.1vw,15px);
+    line-height: 1.7; margin-bottom: 18px; font-style: italic;
+  }
+  .review-author { display: flex; align-items: center; gap: 12px; }
+  .review-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--gold); color: var(--teal-dark);
+    font-weight: 700; font-size: 16px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .review-name { color: white; font-weight: 700; font-size: 14px; }
+  .review-via { color: rgba(255,255,255,0.5); font-size: 12px; margin-top: 2px; }
+
+  .reviews-cta {
+    text-align: center; margin-top: clamp(30px,5vw,48px);
+  }
+  .reviews-cta a {
+    display: inline-block;
+    background: var(--gold); color: var(--teal-dark);
+    font-weight: 700; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 0.05em; text-decoration: none;
+    padding: 14px 32px; border-radius: 6px;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .reviews-cta a:hover { opacity: 0.87; transform: translateY(-2px); }
+
+  /* ─── BOTTOM CTA BAND ────────────────────────────── */
+  .cta-band {
+    background: linear-gradient(135deg, var(--teal-dark), #00a869);
+    padding: clamp(50px,8vw,80px) 5%; text-align: center;
+  }
+  .cta-band h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px,4vw,42px); color: white; margin-bottom: 16px;
+  }
+  .cta-band p { color: rgba(255,255,255,0.85); font-size: clamp(15px,1.2vw,18px); margin-bottom: 32px; }
+  .cta-band-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+  /* ─── MOBILE STICKY CALL BAR ─────────────────────── */
+  .mobile-cta-bar {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 2000;
+    background: var(--red-urgent);
+    padding: 16px 20px;
+    align-items: center; justify-content: center; gap: 12px;
+    box-shadow: 0 -6px 28px rgba(192,57,43,0.45);
+  }
+  .mobile-cta-bar a {
+    color: white; text-decoration: none; font-weight: 800;
+    font-size: 17px; display: flex; align-items: center; gap: 10px;
+    text-transform: uppercase; letter-spacing: 0.03em;
+  }
+  .mobile-cta-bar .pulse-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #fff; flex-shrink: 0;
+    animation: pulse-dot 1.4s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  /* ─── LIVE ACTIVITY TOAST ─────────────────────────── */
+  .live-toast {
+    position: fixed; bottom: 80px; left: 20px; z-index: 1500;
+    background: white; border-radius: 10px;
+    padding: 12px 16px; max-width: 260px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.14);
+    border-left: 4px solid var(--teal-dark);
+    display: flex; align-items: center; gap: 12px;
+    font-size: 13px; line-height: 1.4;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+    pointer-events: none;
+  }
+  .live-toast.show { opacity: 1; transform: translateY(0); }
+  .live-toast-icon { font-size: 22px; flex-shrink: 0; }
+  .live-toast strong { display: block; color: var(--teal-dark); font-size: 13px; }
+  .live-toast span   { color: #666; font-size: 12px; }
+  footer {
+    background: var(--text-dark); color: rgba(255,255,255,0.6);
+    padding: clamp(30px,5vw,40px) 5%; text-align: center; font-size: 14px;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer p + p { margin-top: 8px; }
+
+  /* ─── DOCTOR SECTION ─────────────────────────────── */
+  .doctor-section {
+    display: flex; flex-wrap: wrap; gap: clamp(30px,5vw,60px);
+    align-items: center; padding: clamp(50px,9vw,100px) 5%;
+    background: var(--white);
+  }
+  .doctor-photo-wrap {
+    flex: 0 1 420px;
+    position: relative;
+  }
+  .doctor-photo-wrap img {
+    width: 100%; border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,122,77,0.2);
+    display: block;
+  }
+  .doctor-badge {
+    position: absolute; bottom: -18px; left: 24px;
+    background: var(--gold);
+    color: var(--teal-dark);
+    font-weight: 700; font-size: 13px;
+    padding: 10px 20px; border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  }
+  .doctor-info { flex: 1 1 340px; }
+  .doctor-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px,3.5vw,38px);
+    color: var(--teal-dark); margin-bottom: 16px; line-height: 1.2;
+  }
+  .doctor-info p { font-size: clamp(15px,1.2vw,17px); color: var(--text-body); line-height: 1.8; margin-bottom: 20px; }
+  .doctor-creds {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px;
+  }
+  .cred-chip {
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    padding: 6px 14px; border-radius: 100px;
+    font-size: 13px; font-weight: 600;
+  }
+
+  /* ─── EMERGENCY PHOTO STRIP ───────────────────────── */
+  .photo-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: 0;
+  }
+  .photo-strip-item {
+    position: relative; overflow: hidden;
+    height: clamp(200px, 28vw, 360px);
+  }
+  .photo-strip-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+  .photo-strip-item:hover img { transform: scale(1.05); }
+  .photo-strip-item .photo-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,40,22,0.85), transparent);
+    color: white; padding: 20px 16px 14px;
+    font-weight: 700; font-size: clamp(13px,1.2vw,16px);
+  }
+
+  /* ─── OFFICE PHOTO SECTION ────────────────────────── */
+  .office-photos {
+    padding: clamp(50px,8vw,80px) 5%;
+    background: var(--off-white);
+  }
+  .office-photos-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 14px;
+    margin-top: 36px;
+    height: clamp(280px, 45vw, 560px);
+  }
+  .office-photo-main {
+    grid-row: 1 / 3;
+    border-radius: 14px; overflow: hidden;
+  }
+  .office-photo-main img,
+  .office-photo-small img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    border-radius: 14px;
+    transition: transform 0.4s;
+  }
+  .office-photo-main:hover img,
+  .office-photo-small:hover img { transform: scale(1.03); }
+  .office-photo-small { border-radius: 14px; overflow: hidden; }
+
+  /* ─── ANIMATIONS ─────────────────────────────── */
+  .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.75s ease, transform 0.75s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ═══════════════════════════════════════════════
+     RESPONSIVE — Full coverage for all breakpoints
+  ═══════════════════════════════════════════════ */
+
+  /* ── Tablet: 1024px ── */
+  @media (max-width: 1024px) {
+    .hero { padding: 70px 5% 60px; gap: 32px; }
+    .hero-content { flex: 1 1 420px; }
+    .price-card-wrapper { flex: 0 1 360px; }
+    .doctor-section { gap: 40px; }
+    .doctor-photo-wrap { flex: 0 1 340px; }
+  }
+
+  /* ── Tablet/Mobile: 768px ── */
+  @media (max-width: 768px) {
+    /* Nav */
+    .sticky-bar { padding: 0 4%; height: 58px; }
+    .sticky-actions .btn-book { display: none; }
+    .sticky-phone { font-size: 13px; padding: 8px 14px; }
+
+    /* Urgency banner */
+    .urgency-banner { padding: 12px 4%; font-size: 13px; }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 60px 4% 50px;
+      min-height: auto;
+      flex-direction: column;
+    }
+    .hero-content { flex-basis: 100%; }
+    .hero-trust, .hero-ctas { justify-content: center; }
+    .hero-ctas { flex-direction: column; align-items: center; gap: 12px; }
+    .btn-primary, .btn-call { width: 100%; max-width: 380px; display: block; text-align: center; }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .hero-conditions { text-align: left; }
+    .hero-conditions-grid { grid-template-columns: 1fr; gap: 10px; }
+    .hero-conditions-grid span { font-size: 15px; }
+    .hero-live-stats { gap: 8px; padding: 12px 12px; flex-wrap: nowrap; }
+    .hero-stat-num { font-size: 17px; }
+    .hero-stat span:last-child { font-size: 10px; }
+
+    /* Price card */
+    .price-card-wrapper { flex-basis: 100%; max-width: 460px; margin: 0 auto; animation: none; }
+
+    /* Photo strip — 2 columns */
+    .photo-strip { grid-template-columns: 1fr 1fr; }
+    .photo-strip-item { height: clamp(160px, 28vw, 260px); }
+
+    /* How it works */
+    .auto-grid { grid-template-columns: 1fr; }
+
+    /* Why us */
+    .whyus-container { flex-direction: column; gap: 30px; }
+    .office-card { flex-basis: 100%; }
+    .whyus-info { flex-basis: 100%; }
+
+    /* Doctor */
+    .doctor-section { flex-direction: column; align-items: center; text-align: center; padding: 50px 4%; }
+    .doctor-photo-wrap { flex-basis: 100%; max-width: 360px; }
+    .doctor-info { flex-basis: 100%; }
+    .doctor-creds { justify-content: center; }
+    .doctor-info a.btn-primary { margin: 0 auto; display: block; max-width: 320px; }
+
+    /* Office photos */
+    .office-photos-grid { grid-template-columns: 1fr; grid-template-rows: auto; height: auto; }
+    .office-photo-main { grid-row: auto; }
+    .office-photo-main img { height: 260px; }
+    .office-photo-small img { height: 180px; }
+
+    /* Reviews */
+    .reviews-grid { grid-template-columns: 1fr 1fr; }
+
+    /* CTA band */
+    .cta-band-btns { flex-direction: column; align-items: center; gap: 12px; }
+    .cta-band-btns .btn-primary,
+    .cta-band-btns .btn-call { width: 100%; max-width: 340px; }
+
+    /* Padding body for sticky bar */
+    body { padding-bottom: 66px; }
+    .mobile-cta-bar { display: flex; }
+  }
+
+  /* ── Mobile: 480px ── */
+  @media (max-width: 480px) {
+    .sticky-phone { font-size: 12px; padding: 7px 10px; }
+    .urgency-banner { flex-direction: column; gap: 8px; font-size: 12px; }
+
+    .hero { padding: 50px 4% 40px; }
+    .hero-ctas { gap: 10px; }
+    .hero-live-stats { gap: 6px; padding: 10px; }
+    .hero-stat-num { font-size: 15px; }
+    .hero-conditions-grid span { font-size: 14px; }
+
+    .photo-strip { grid-template-columns: 1fr; }
+    .photo-strip-item { height: 220px; }
+
+    .ratings-strip { gap: 14px; padding: 24px 4%; }
+    .stat-num { font-size: 26px; }
+
+    .reviews-grid { grid-template-columns: 1fr; }
+
+    .office-photo-main img { height: 220px; }
+    .office-photo-small img { height: 160px; }
+
+    .doctor-photo-wrap { max-width: 280px; }
+    .doctor-badge { font-size: 11px; padding: 7px 12px; left: 12px; }
+
+    .live-toast { max-width: 200px; font-size: 12px; bottom: 74px; left: 10px; }
+
+    footer { padding: 24px 4%; font-size: 13px; }
+  }
+
+  /* ── Very small: 360px ── */
+  @media (max-width: 360px) {
+    .hero h1 { font-size: 28px; }
+    .sticky-phone { font-size: 11px; padding: 6px 8px; }
+    .btn-primary, .btn-call { font-size: 14px; padding: 14px 18px; }
+    .price-amount { font-size: 54px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── STICKY NAV ────────────────────────────────── -->
+<nav class="sticky-bar">
+  <a href="#"><img src="https://panthercreekdental.com/wp-content/uploads/2024/06/logo.png" class="sticky-logo-img" alt="Panther Creek Dental"></a>
+  <div class="sticky-actions">
+    <a href="tel:9402897257" class="sticky-phone">📞 (940) 289-7257</a>
+    <a href="#" class="btn-book">Book Online →</a>
+  </div>
+</nav>
+
+<!-- ── URGENCY BANNER ────────────────────────────── -->
+<div class="urgency-banner">
+  <div>🚨 Dental Pain? Don't Wait — <strong>Same-Day Emergency Appointments</strong> Available NOW</div>
+  <a href="tel:9402897257">Call Now</a>
+</div>
+
+<!-- ── HERO ──────────────────────────────────────── -->
+<header class="hero">
+
+  <!-- Hero photo background from Panther Creek Dental -->
+  <div class="hero-video-bg" aria-hidden="true">
+    <img class="hero-bg-photo"
+      src="https://panthercreekdental.com/wp-content/uploads/2024/06/img-contact.jpg"
+      alt="Panther Creek Dental office"
+      loading="eager" />
+  </div>
+
+  <div class="hero-content reveal">
+    <div class="urgent-badge">🚨 Dental Emergency? We See You Today</div>
+    <h1>Stop the Pain.<br>We'll See You <em>Today.</em></h1>
+    <p class="hero-sub">Chipped tooth, toothache, broken crown, lost filling, swelling or bleeding — call Panther Creek Dental right now. Same-day appointments and gentle care in Frisco, TX.</p>
+    <div class="hero-ctas">
+      <a href="tel:9402897257" class="btn-primary">📞 Call (940) 289-7257</a>
+      <a href="#" class="btn-call">Book Online →</a>
+    </div>
+    <div class="hero-trust">
+      <span class="trust-chip">✓ Same-Day Slots</span>
+      <span class="trust-chip">✓ Open Saturdays</span>
+      <span class="trust-chip">✓ Major PPO Insurance</span>
+    </div>
+    <!-- Emergency conditions list -->
+    <div class="hero-conditions">
+      <div class="hero-conditions-label">We treat all dental emergencies:</div>
+      <div class="hero-conditions-grid">
+        <span>🦷 Severe Toothache</span>
+        <span>💔 Cracked/Broken Tooth</span>
+        <span>👑 Lost or Broken Crown</span>
+        <span>😬 Knocked-Out Tooth</span>
+        <span>🩸 Gum Swelling or Bleeding</span>
+        <span>💊 Dental Abscess</span>
+      </div>
+    </div>
+    <!-- Urgency countdown-style stat row -->
+    <div class="hero-live-stats">
+      <div class="hero-stat"><span class="hero-stat-num">23</span><span>patients seen today</span></div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat"><span class="hero-stat-num">4.9★</span><span>Google rating</span></div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat"><span class="hero-stat-num">&lt;2hr</span><span>avg wait time</span></div>
+    </div>
+  </div>
+
+  <div class="price-card-wrapper reveal">
+    <div class="price-card">
+      <div class="price-offer-label">Special Offer</div>
+      <div class="price-amount"><sup>$</sup>49</div>
+      <div class="price-title">Emergency Dental Exam</div>
+      <ul class="price-features">
+        <li>✅ Comprehensive Emergency Exam</li>
+        <li>✅ Digital X-Rays Included</li>
+        <li>✅ Same-Day Treatment Options</li>
+        <li>✅ Clear Pricing &amp; Estimates</li>
+      </ul>
+      <p class="price-note">*Accepted by major PPO insurance providers.</p>
+    </div>
+  </div>
+</header>
+
+<!-- ── RATINGS STRIP ─────────────────────────────── -->
+<div class="ratings-strip">
+  <div class="stat-item"><div class="stat-num">5.0</div><div class="stat-label">Google Rating</div></div>
+  <div class="stat-item"><div class="stat-num">490+</div><div class="stat-label">Verified Reviews</div></div>
+  <div class="stat-item"><div class="stat-num">Same</div><div class="stat-label">Day Relief</div></div>
+  <div class="stat-item"><div class="stat-num">Sat</div><div class="stat-label">Open Saturdays</div></div>
+</div>
+
+<!-- ── EMERGENCY PHOTO STRIP ──────────────────────── -->
+<div class="photo-strip">
+  <div class="photo-strip-item">
+    <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=800&q=85&fit=crop" alt="Panther Creek Dental Office" loading="lazy" />
+    <div class="photo-label">🏥 Modern Dental Office</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=85&fit=crop" alt="Emergency Dental Exam $49" loading="lazy" />
+    <div class="photo-label">🚨 $49 Emergency Exam</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=85&fit=crop" alt="Dental team Frisco TX" loading="lazy" />
+    <div class="photo-label">✅ Trusted in Frisco Since 2024</div>
+  </div>
+</div>
+
+<!-- ── HOW IT WORKS ──────────────────────────────── -->
+<section class="section">
+  <div class="centered reveal">
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-subtitle">Getting out of pain is simple. We handle everything — you just have to call.</p>
+  </div>
+  <div class="auto-grid">
+    <div class="step-card reveal">
+      <h3>01. Call or Book Online</h3>
+      <p>We'll get you in the same day — often within hours. No waiting, no runaround.</p>
+    </div>
+    <div class="step-card reveal">
+      <h3>02. $49 Diagnosis</h3>
+      <p>Our experienced dentists diagnose your emergency quickly using advanced digital technology.</p>
+    </div>
+    <div class="step-card reveal">
+      <h3>03. Fast Relief</h3>
+      <p>Leave feeling better. We put together a plan to protect your smile and stop the pain immediately.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY FRISCO TRUSTS US ──────────────────────── -->
+<section class="section" style="background:var(--off-white);">
+  <div class="whyus-container">
+    <div class="whyus-info reveal">
+      <h2 class="section-title" style="margin-bottom:20px;">Why Frisco Trusts Us</h2>
+      <p>We hold appointment slots specifically for dental emergencies every single day. When you're in pain, we will be there for you.</p>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <span class="feature-icon">⚡</span>
+          <div><strong>Same-Day Care</strong><br>Morning calls are usually seen by lunch.</div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">💰</span>
+          <div><strong>Transparent Pricing</strong><br>We believe cost shouldn't be a barrier to emergency care.</div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🦷</span>
+          <div><strong>Gentle, Experienced Team</strong><br>Every patient is treated with the care and respect they deserve.</div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🛡️</span>
+          <div><strong>PPO Insurance Welcome</strong><br>We work with most major insurance plans to keep your costs low.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="office-card reveal">
+      <h3>Hours &amp; Location</h3>
+      <div class="hours-row"><span>Tue – Thu</span><span>9:00am – 5:00pm</span></div>
+      <div class="hours-row"><span>Friday</span><span>8:00am – 4:00pm</span></div>
+      <div class="hours-row featured"><span>Saturday</span><span>9:00am – 3:00pm</span></div>
+      <div class="office-address">
+        <strong>Panther Creek Dental</strong><br>
+        11020 Panther Creek Pkwy, Suite 300<br>
+        Frisco, TX 75035<br><br>
+        <a href="tel:9402897257">📞 (940) 289-7257</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MEET THE DOCTOR ─────────────────────────────── -->
+<section class="doctor-section">
+  <div class="doctor-photo-wrap reveal">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNJ5LBsbI45aYQY1lfS4h0lQLhlYj4VfKPTXBgMDOeaygtRtdq"
+      alt="Dr. Adesuwa Okonedo - Panther Creek Dental" />
+    <div class="doctor-badge">⭐ Top-Rated Frisco Dentist</div>
+  </div>
+  <div class="doctor-info reveal">
+    <h2>Meet Dr. Adesuwa Okonedo, DDS</h2>
+    <p>Dr. Okonedo leads our emergency care team with compassion and precision. When you're in pain, she and her team drop everything to see you — because nobody should suffer waiting days for relief.</p>
+    <p>With advanced digital technology and same-day treatment capabilities, Dr. Okonedo resolves most emergencies in a single visit so you can get back to your life fast.</p>
+    <div class="doctor-creds">
+      <span class="cred-chip">✅ DDS Certified</span>
+      <span class="cred-chip">✅ Emergency Specialist</span>
+      <span class="cred-chip">✅ 490+ 5-Star Reviews</span>
+      <span class="cred-chip">✅ Same-Day Appointments</span>
+    </div>
+    <a href="tel:9402897257" class="btn-primary" style="display:inline-block;">📞 Call for Immediate Relief</a>
+  </div>
+</section>
+
+<!-- ── OFFICE PHOTOS ──────────────────────────────── -->
+<section class="office-photos">
+  <div class="centered reveal">
+    <h2 class="section-title">Our State-of-the-Art Frisco Office</h2>
+    <p class="section-subtitle">A calm, welcoming environment designed to put even the most anxious patients at ease.</p>
+  </div>
+  <div class="office-photos-grid">
+    <div class="office-photo-main reveal">
+      <img src="https://panthercreekdental.com/wp-content/uploads/2024/06/img-contact.jpg" alt="Panther Creek Dental office Frisco TX" />
+    </div>
+    <div class="office-photo-small reveal">
+      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=85&fit=crop"
+        alt="Modern dental treatment room" />
+    </div>
+    <div class="office-photo-small reveal">
+      <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=85&fit=crop"
+        alt="State-of-the-art dental equipment Frisco TX" />
+    </div>
+  </div>
+</section>
+
+<!-- ── PATIENT REVIEWS ────────────────────────────── -->
+<section class="section reviews-section">
+  <div class="centered reveal">
+    <h2 class="section-title">What Our Patients Say</h2>
+    <p class="section-subtitle">490+ five-star Google reviews and counting. Here's what Frisco families are saying.</p>
+  </div>
+  <div class="reviews-grid">
+
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I called at 8am with terrible tooth pain and they got me in by 10:30am. The staff was so kind and the dentist explained everything clearly. I left pain-free. Truly the best dental experience I've ever had."</p>
+      <div class="review-author">
+        <div class="review-avatar">S</div>
+        <div>
+          <div class="review-name">Sarah M.</div>
+          <div class="review-via">Google Review · Frisco, TX</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Broke a crown on a Friday afternoon and was panicking. Panther Creek got me in within 2 hours and handled everything. The $49 exam was totally worth it — no hidden fees, just honest care."</p>
+      <div class="review-author">
+        <div class="review-avatar">J</div>
+        <div>
+          <div class="review-name">James T.</div>
+          <div class="review-via">Google Review · Prosper, TX</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"My son chipped his tooth during a soccer game on Saturday. I was so relieved they were open! They were gentle, patient, and fixed him up perfectly. This is our family dentist for life."</p>
+      <div class="review-author">
+        <div class="review-avatar">M</div>
+        <div>
+          <div class="review-name">Maria L.</div>
+          <div class="review-via">Google Review · Frisco, TX</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Had a severe toothache and swelling. They saw me same day, did X-rays, prescribed antibiotics and handled the procedure all in one visit. Outstanding professionalism and genuine compassion."</p>
+      <div class="review-author">
+        <div class="review-avatar">R</div>
+        <div>
+          <div class="review-name">Robert K.</div>
+          <div class="review-via">Google Review · The Colony, TX</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I'm terrified of dentists — but they made me feel completely at ease. The team was warm, funny, and incredibly skilled. I can't believe I went this long without finding them."</p>
+      <div class="review-author">
+        <div class="review-avatar">A</div>
+        <div>
+          <div class="review-name">Amanda F.</div>
+          <div class="review-via">Google Review · Frisco, TX</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="reviews-cta reveal">
+    <a href="https://g.page/r/panther-creek-dental/review" target="_blank" rel="noopener">
+      ⭐ Read All 490+ Google Reviews →
+    </a>
+  </div>
+</section>
+
+<!-- ── BOTTOM CTA BAND ─────────────────────────────── -->
+<section class="cta-band reveal">
+  <h2>Ready to Stop the Pain?</h2>
+  <p>Don't tough it out. Same-day emergency appointments are available — call us now or book online in seconds.</p>
+  <div class="cta-band-btns">
+    <a href="tel:9402897257" class="btn-primary">📞 Call (940) 289-7257</a>
+    <a href="#" class="btn-call">Book Online →</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────── -->
+<footer>
+  <p>© 2026 Panther Creek Dental | <a href="tel:9402897257">(940) 289-7257</a></p>
+  <p style="font-size:12px;">11020 Panther Creek Pkwy, Suite 300, Frisco, TX 75035</p>
+</footer>
+
+<!-- ── MOBILE STICKY CALL BAR (shows on phones) ───── -->
+<div class="mobile-cta-bar">
+  <div class="pulse-dot"></div>
+  <a href="tel:9402897257">📞 Tap to Call Now — (940) 289-7257</a>
+</div>
+
+<!-- ── LIVE ACTIVITY TOAST ────────────────────────── -->
+<div class="live-toast" id="liveToast">
+  <span class="live-toast-icon">🦷</span>
+  <div>
+    <strong id="toastMsg">Someone in Frisco just booked</strong>
+    <span id="toastTime">2 minutes ago</span>
+  </div>
+</div>
+
+<script>
+  // Scroll-triggered reveal animations
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // Live activity toasts — simulates real booking activity
+  const toastMessages = [
+    { msg: "Someone in Frisco just booked",   time: "2 min ago" },
+    { msg: "Emergency call from The Colony",  time: "5 min ago" },
+    { msg: "Appointment booked in Prosper",   time: "8 min ago" },
+    { msg: "New patient in McKinney booked",  time: "Just now"  },
+    { msg: "Toothache patient seen today",    time: "12 min ago"},
+    { msg: "Broken crown — same-day slot",    time: "3 min ago" },
+  ];
+  let toastIdx = 0;
+  const toast = document.getElementById('liveToast');
+  const toastMsg  = document.getElementById('toastMsg');
+  const toastTime = document.getElementById('toastTime');
+
+  function showToast() {
+    const t = toastMessages[toastIdx % toastMessages.length];
+    toastMsg.textContent  = t.msg;
+    toastTime.textContent = t.time;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+    toastIdx++;
+  }
+
+  // First toast after 4s, then every 18s
+  setTimeout(() => {
+    showToast();
+    setInterval(showToast, 18000);
+  }, 4000);
+</script>
+
+</body>
+</html>
